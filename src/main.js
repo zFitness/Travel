@@ -6,8 +6,11 @@ import router from './router'
 // 引入fastclick库
 import fastClick from 'fastclick'
 //导入 全局css，  reset.css, border.css
-import './assets/styles/reset.css'
-import './assets/styles/border.css'
+import 'styles/reset.css'
+import 'styles/border.css'
+// 引入iconfont
+import 'styles/iconfont.css'
+
 Vue.config.productionTip = false
 // 使用fastclick
 fastClick.attach(document.body);
