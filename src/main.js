@@ -3,9 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+// 引入fastclick库
+import fastClick from 'fastclick'
+//导入 全局css，  reset.css, border.css
+import './assets/styles/reset.css'
+import './assets/styles/border.css'
 Vue.config.productionTip = false
-
+// 使用fastclick
+fastClick.attach(document.body);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
