@@ -10,6 +10,7 @@
         </div>
       </swiper-slide>
     </swiper>
+    <div class="swiper-pagination" slot="pagination"></div>
   </div>
 </template>
 
@@ -18,7 +19,10 @@ export default {
   name: "HomeIcons",
   data() {
     return {
-      swiperOption: {},
+      swiperOption: {
+        // 设置轮播图片下面的小点
+        pagination: ".swiper-pagination"
+      },
       iconList: [
         {
           id: "0001",
@@ -104,41 +108,72 @@ export default {
   padding-bottom: 50%;
 }
 
-.icon {
-  position: relative;
-  overflow: hidden;
-  width: 25%;
-  height: 0;
-  float: left;
-  padding-bottom: 25%;
+.swiper-pagination >>> .swiper-pagination-bullet {
+  margin-left: 3px;
+}
 
-  .icon-desc {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 0.44rem;
-    line-height: 0.44rem;
-    color: #da rkTextColor;
-    text-align: center;
-    // 使用定义的stylus方法
-    ellipsis();
+.swiper-pagination {
+  position: relative;
+}
+
+.mpw-nav-dots {
+  bottom: 6px;
+  padding: 0 6px;
+  width: 100%;
+  text-align: center;
+
+  .active {
+    background: rgba(0, 175, 190, 0.8);
   }
 
-  .icon-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0.44rem;
-    box-sizing: border-box;
-    padding: 0.1rem;
+  b {
+    display: inline-block;
+    margin: 0 3px;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(144, 144, 144, 0.8);
+  }
+}
 
-    .icon-img-content {
-      display: block;
-      // 水平居中
-      margin: 0 auto;
-      height: 100%;
+.icons {
+  margin-top .1rem
+  .icon {
+    position: relative;
+    overflow: hidden;
+    width: 25%;
+    height: 0;
+    float: left;
+    padding-bottom: 25%;
+
+    .icon-desc {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 0.44rem;
+      line-height: 0.44rem;
+      color: #da rkTextColor;
+      text-align: center;
+      // 使用定义的stylus方法
+      ellipsis();
+    }
+
+    .icon-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0.44rem;
+      box-sizing: border-box;
+      padding: 0.1rem;
+
+      .icon-img-content {
+        display: block;
+        // 水平居中
+        margin: 0 auto;
+        height: 100%;
+      }
     }
   }
 }
