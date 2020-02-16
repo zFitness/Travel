@@ -49,7 +49,7 @@ export default {
   overflow: hidden;
   // 解决抖动
   // 保持图片宽高比
-  padding-bottom: 27.25%;
+  padding-bottom: 26.25%;
   background: #eee;
 
   .swiper-img {
