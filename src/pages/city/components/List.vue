@@ -2,6 +2,7 @@
   <!-- huo -->
   <div class="list" ref="wrapper">
     <div>
+      <!-- 当前城市 -->
       <div class="area">
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
@@ -10,6 +11,7 @@
           </div>
         </div>
       </div>
+      <!-- 热门城市 -->
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
@@ -18,10 +20,15 @@
           </div>
         </div>
       </div>
-      <div class="area" v-for="(item, key,  index) of cities" :key="index">
+      <!-- 字母城市列表 -->
+      <div class="area" v-for="(item, key,  index) of cities" :key="index" :ref="key">
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list">
-          <div class="item border-bottom" v-for="innerItem of item" :key="innerItem.id">{{innerItem.name}}</div>
+          <div
+            class="item border-bottom"
+            v-for="innerItem of item"
+            :key="innerItem.id"
+          >{{innerItem.name}}</div>
         </div>
       </div>
     </div>
@@ -34,10 +41,23 @@ export default {
   name: "CityList",
   props: {
     hot: Array,
-    cities: Object
+    cities: Object,
+    letter: String
   },
   mounted() {
     this.scroll = new Bscroll(this.$refs.wrapper);
+  },
+  //侦听器
+  watch: {
+    letter() {
+      console.log(this.letter);
+      if (this.letter) {
+        // 由ref 获取 dom 元素
+        const element = this.$refs[this.letter][0];
+        this.scroll.scrollToElement(element);
+        console.log(element);
+      }
+    }
   }
 };
 </script>
