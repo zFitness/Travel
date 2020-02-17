@@ -1,7 +1,8 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption">
-      <swiper-slide v-for="item of swiperList" :key="item.id">
+    <!-- 当list.length 为0， 即list为空数组时， swiper不会被创建，解决了显示最后一张图片的问题。 -->
+    <swiper :options="swiperOption" v-if="showSwiper">
+      <swiper-slide v-for="item of list" :key="item.id">
         <img :src="item.imgUrl" class="swiper-img" />
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
@@ -12,27 +13,26 @@
 <script>
 export default {
   name: "HomeSwiper",
+  props: {
+    list: Array
+  },
   data() {
     return {
       swiperOption: {
         // 设置轮播图片下面的小点
         pagination: ".swiper-pagination",
         //开启循环
-        loop: true
-      },
-      swiperList: [
-        {
-          id: "0001",
-          imgUrl:
-            "https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20201/be6871c9b0b0ffab3ef2a86fa9688677.jpg"
-        },
-        {
-          id: "0002",
-          imgUrl:
-            "https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20201/be6871c9b0b0ffab3ef2a86fa9688677.jpg"
-        }
-      ]
+        loop: true,
+        //开启自动滚动
+        autoplay: true,
+        speed: 2000
+      }
     };
+  },
+  computed: {
+    showSwiper () {
+      return this.list.length;
+    }
   }
 };
 </script>
@@ -49,7 +49,7 @@ export default {
   overflow: hidden;
   // 解决抖动
   // 保持图片宽高比
-  padding-bottom: 26.25%;
+  padding-bottom: 30.25%;
   background: #eee;
 
   .swiper-img {

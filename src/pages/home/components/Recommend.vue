@@ -2,7 +2,7 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <img :src="item.imgUrl" alt class="item-img" />
 
         <div class="item-info">
@@ -18,33 +18,11 @@
 <script>
 export default {
   name: "HomeRecommend",
+  props: {
+    list: Array
+  },
   data() {
     return {
-      recommendList: [{
-        id: "0001",
-        imgUrl:
-          "http://img1.qunarzz.com/sight/p0/1808/72/72166e8da2280379a3.img.jpg_200x200_206c38f5.jpg",
-        title: "美丽世界",
-        desc: "给孩子一个充满生气、充满想象力的童年"
-      },{
-        id: "0002",
-        imgUrl:
-          "http://img1.qunarzz.com/sight/p0/1808/72/72166e8da2280379a3.img.jpg_200x200_206c38f5.jpg",
-        title: "美丽世界",
-        desc: "给孩子一个充满生气、充满想象力的童年"
-      },{
-        id: "0003",
-        imgUrl:
-          "http://img1.qunarzz.com/sight/p0/1808/72/72166e8da2280379a3.img.jpg_200x200_206c38f5.jpg",
-        title: "美丽世界",
-        desc: "给孩子一个充满生气、充满想象力的童年"
-      },{
-        id: "0004",
-        imgUrl:
-          "http://img1.qunarzz.com/sight/p0/1808/72/72166e8da2280379a3.img.jpg_200x200_206c38f5.jpg",
-        title: "美丽世界",
-        desc: "给孩子一个充满生气、充满想象力的童年"
-      }]
     };
   }
 };

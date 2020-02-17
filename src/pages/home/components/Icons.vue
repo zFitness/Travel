@@ -17,74 +17,23 @@
 <script>
 export default {
   name: "HomeIcons",
+  props: {
+    list: Array
+  },
   data() {
     return {
       swiperOption: {
         // 设置轮播图片下面的小点
-        pagination: ".swiper-pagination"
-      },
-      iconList: [
-        {
-          id: "0001",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/e3/67df61427c8e1302.png",
-          desc: "演出"
-        },
-        {
-          id: "0002",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-          desc: "景点门票"
-        },
-        {
-          id: "0003",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png",
-          desc: "张家界旅游"
-        },
-        {
-          id: "0004",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/87/20656da0ac042002.png",
-          desc: "玻璃桥"
-        },
-        {
-          id: "0005",
-          imgUrl:
-            "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/a40ee278d67000f2a29d2e20f6a029b3.png",
-          desc: "自然风光"
-        },
-        {
-          id: "0006",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/e3/67df61427c8e1302.png",
-          desc: "看看"
-        },
-        {
-          id: "0007",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png",
-          desc: "滑雪"
-        },
-        {
-          id: "0008",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/8d02011d149bdb02.png",
-          desc: "索道"
-        },
-        {
-          id: "0009",
-          imgUrl:
-            "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/91a810441506568937171df66f754375.png",
-          desc: "红石林"
-        }
-      ]
+        pagination: ".swiper-pagination",
+        //关闭自动滚动
+        autoplay: false
+      }
     };
   },
   computed: {
     pages() {
       const pages = [];
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         // 获取当前页码
         const page = Math.floor(index / 8);
         // 如果当前页为空

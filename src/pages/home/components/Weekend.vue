@@ -2,7 +2,7 @@
   <div>
     <div class="title">周末去哪儿</div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <div class="item-img-wrapper">
           <img :src="item.imgUrl" alt class="item-img" />
         </div>
@@ -19,39 +19,11 @@
 <script>
 export default {
   name: "HomeWeekend",
+  props: {
+    list: Array
+  },
   data() {
-    return {
-      recommendList: [
-        {
-          id: "0001",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1808/72/72166e8da2280379a3.img.jpg_200x200_206c38f5.jpg",
-          title: "美丽世界",
-          desc: "给孩子一个充满生气、充满想象力的童年"
-        },
-        {
-          id: "0002",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1808/72/72166e8da2280379a3.img.jpg_200x200_206c38f5.jpg",
-          title: "美丽世界",
-          desc: "给孩子一个充满生气、充满想象力的童年"
-        },
-        {
-          id: "0003",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1808/72/72166e8da2280379a3.img.jpg_200x200_206c38f5.jpg",
-          title: "美丽世界",
-          desc: "给孩子一个充满生气、充满想象力的童年"
-        },
-        {
-          id: "0004",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1808/72/72166e8da2280379a3.img.jpg_200x200_206c38f5.jpg",
-          title: "美丽世界",
-          desc: "给孩子一个充满生气、充满想象力的童年"
-        }
-      ]
-    };
+    return {};
   }
 };
 </script>
@@ -60,7 +32,7 @@ export default {
 @import '~styles/mixins.styl';
 
 .title {
-  margin-top: 0.2rem;
+  // margin-top: 0.2rem;
   line-height: 0.8rem;
   background: #eee;
   text-indent: 0.2rem;
@@ -69,7 +41,7 @@ export default {
 .item-img-wrapper {
   overflow: hidden;
   height: 0;
-  padding-bottom: 33.9%;
+  padding-bottom: 37.09%;
 }
 
 .item {
