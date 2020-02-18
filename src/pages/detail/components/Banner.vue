@@ -6,9 +6,9 @@
         src="http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_600x330_bf9c4904.jpg"
         alt
       />
-      <router-link to="/" tag="div" class="banner-back">
+      <!-- <router-link to="/" tag="div" class="banner-back">
         <span class="iconfont arrow-icon" style="margin-right:.1rem;">&#xe624;</span>
-      </router-link>
+      </router-link> -->
       <div class="banner-info">
         <div class="banner-number">
           <span class="iconfont arrow-icon" style="margin-right:.1rem;font-size:.1rem;">&#xe678;</span> 39
