@@ -38,7 +38,7 @@ module.exports = {
       '@': resolve('src'),
       // 自定义别名
       'styles': resolve('src/assets/styles'),
-
+      'common': resolve('src/common')
     }
   },
   module: {

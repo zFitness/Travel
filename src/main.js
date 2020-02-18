@@ -17,10 +17,14 @@ Vue.use(VueAwesomeSwiper)
 Vue.config.productionTip = false
 // 使用fastclick
 fastClick.attach(document.body);
+// 引入vuex
+import store from './store'
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  store
 })
