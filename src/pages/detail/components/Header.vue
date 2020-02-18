@@ -43,8 +43,8 @@ export default {
     // 全局事件绑定
     window.addEventListener("scroll", this.handleScroll);
   },
-  deactivated () {
-    window.removeEventListener('scroll', this.handleScroll);
+  deactivated() {
+    window.removeEventListener("scroll", this.handleScroll);
   }
 };
 </script>
@@ -80,6 +80,7 @@ export default {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 2;
 
   .header-fixed-back {
     top: 0;
