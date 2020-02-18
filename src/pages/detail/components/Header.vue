@@ -40,8 +40,11 @@ export default {
   },
   // 钩子
   activated() {
-    console.log("aaa");
+    // 全局事件绑定
     window.addEventListener("scroll", this.handleScroll);
+  },
+  deactivated () {
+    window.removeEventListener('scroll', this.handleScroll);
   }
 };
 </script>
