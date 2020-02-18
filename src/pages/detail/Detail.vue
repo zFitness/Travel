@@ -1,11 +1,9 @@
 <template>
   <div>
-    <detail-banner></detail-banner>
-    <keep-alive>
+    <detail-banner :sightName="sightName" :bannerImg="bannerImg" :gallaryImgs="gallaryImgs"></detail-banner>
       <detail-header></detail-header>
-    </keep-alive>
     <div class="content">
-      <detail-list :list="list"></detail-list>
+      <detail-list :list="categoryList"></detail-list>
     </div>
   </div>
 </template>
@@ -14,6 +12,7 @@
 import DetailBanner from "./components/Banner";
 import DetailHeader from "./components/Header";
 import DetailList from "./components/List";
+import axios from 'axios'
 export default {
   name: "Detail",
   components: {
@@ -23,40 +22,34 @@ export default {
   },
   data() {
     return {
-      list: [
-        {
-          title: "成人票",
-          children: [
-            {
-              title: "成人三观联票",
-              children: [
-                {
-                  title: "垃圾票"
-                },
-                {
-                  title: "傻子票"
-                },
-                {
-                  title: "王八票"
-                }
-              ]
-            },
-            {
-              title: "成人三观联票"
-            }
-          ]
-        },
-        {
-          title: "学生票"
-        },
-        {
-          title: "儿童票"
-        },
-        {
-          title: "特惠票"
-        }
-      ]
+      sightName: '',
+      categoryList: [],
+      bannerImg: '',
+      gallaryImgs: []
     };
+  },
+  methods: {
+    getDetailInfo () {
+      axios.get('/api/detail.json', {
+        params: {
+          id: this.$route.params.id
+        }
+      }).then(this.getDetailInfoSucc)
+    },
+    getDetailInfoSucc (res) {
+      console.log(res);
+      res = res.data
+      if(res.ret && res.data) {
+        const data = res.data;
+        this.categoryList = data.categoryList
+        this.sightName = data.sightName
+        this.gallaryImgs = data.gallaryImgs
+        this.bannerImg = data.bannerImg;
+      }
+    }
+  },
+  mounted() {
+    this.getDetailInfo()
   }
 };
 </script>
