@@ -19,6 +19,8 @@ Vue.config.productionTip = false
 fastClick.attach(document.body);
 // 引入vuex
 import store from './store'
+//引入 babel-polyfill
+import 'babel-polyfill'
 
 /* eslint-disable no-new */
 new Vue({
