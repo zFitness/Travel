@@ -7,17 +7,21 @@
       </router-link>-->
       <div class="banner-info">
         <div class="banner-number">
-          <span class="iconfont arrow-icon" style="margin-right:.1rem;font-size:.1rem;">&#xe678;</span> {{this.bannerImg.length}}
+          <span class="iconfont arrow-icon" style="margin-right:.1rem;font-size:.1rem;">&#xe678;</span>
+          {{this.bannerImg.length}}
         </div>
         <div class="banner-title">{{sightName}}</div>
       </div>
     </div>
-    <common-gallary :imgs="gallaryImgs" v-show="showGallary" @close="handleGallaryClose"></common-gallary>
+    <fade-animation>
+      <common-gallary :imgs="gallaryImgs" v-show="showGallary" @close="handleGallaryClose"></common-gallary>
+    </fade-animation>
   </div>
 </template>
 
 <script>
 import CommonGallary from "common/gallary/Gallary";
+import FadeAnimation from "common/fade/FadeAnimation";
 export default {
   name: "DetailBanner",
   props: {
@@ -26,7 +30,8 @@ export default {
     sightName: String
   },
   components: {
-    CommonGallary
+    CommonGallary,
+    FadeAnimation
   },
 
   data() {

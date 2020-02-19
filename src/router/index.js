@@ -25,6 +25,7 @@ export default new Router({
       component: Detail
     }
   ],
+  // 设置路由跳转时，跳转的位置
   scrollBehavior (to, from, savedPosition) {
     return { x: 0, y: 0 }
   }
